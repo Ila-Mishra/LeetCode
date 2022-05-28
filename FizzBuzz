@@ -1,0 +1,22 @@
+class Solution {
+    public List<String> fizzBuzz(int n) {
+        //Storing elements in Array of list
+        ArrayList<String> answer = new ArrayList<>();
+        for(int i=1; i<=n; i++){
+            if(i%3==0 && i%5==0){
+                answer.add("FizzBuzz");
+            }
+            else if(i%3==0){
+                answer.add("Fizz");
+            }
+            else if(i%5==0){
+                answer.add("Buzz");
+            }
+            //Adding element as string "", if not then it will throw compile error of int connot be converted to string
+            else{
+                answer.add(i+"");
+            }
+        }
+        return answer;
+    }
+}
