@@ -1,0 +1,25 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        //Using HashSet as it does not contain duplicate
+        HashSet<Integer> singleOne = new HashSet<>();
+        //Iterating through array
+        for(int i : nums){
+            //Removing element if, its present in array
+            if(singleOne.contains(i)){
+                singleOne.remove(i);
+            }
+            //otherwise adding to set
+            else{
+                singleOne.add(i);
+            }
+        }
+        
+        //Returning the single number present in set
+        for(int i : singleOne){
+            return i;
+        }
+        
+        return 0;
+        
+    }
+}
