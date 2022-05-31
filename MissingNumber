@@ -1,0 +1,22 @@
+#Python Solution
+class Solution(object):
+    def missingNumber(self, a):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        n = len(a);
+        n_elements_sum=n*(n+1)//2
+        return n_elements_sum-sum(a)
+ 
+ 
+ //Java Solution
+ class Solution {
+    public int missingNumber(int[] nums) {
+        int n=nums.length;
+        int sum=((n+1)*(n+2))/2;
+        for(int i=0;i<n;i++)
+          sum-=nums[i];
+        return sum;
+    }
+}
