@@ -1,0 +1,26 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        /*if(prices.length==1)
+            return 0;
+        
+        int maxProfit=0, start=0, end=1;
+        while(end<prices.length){
+            if(prices[start]<prices[end]){
+                maxProfit = Math.max(maxProfit, prices[end]-prices[start]);
+            }
+            else{
+                start=end;
+            }
+            end++;
+        }
+        
+        return maxProfit;*/
+        
+        int maxCur = 0, maxSoFar = 0;
+        for(int i = 1; i < prices.length; i++) {
+            maxCur = Math.max(0, maxCur += prices[i] - prices[i-1]);
+            maxSoFar = Math.max(maxCur, maxSoFar);
+        }
+        return maxSoFar;
+    }
+}
