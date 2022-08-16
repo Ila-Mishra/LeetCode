@@ -1,0 +1,54 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+
+    //Method 1:
+    //Use 2 nested loops. Outer loop - 1st list, inner loop - 2nd list. In inner loop check if any of the nodes of 2nd list is same as the current node of the 1st list.
+    //Time complexity O(n*m)
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        
+        while(headB!=null){
+            ListNode temp = headA;
+            while(temp!=null){
+              if(temp==headB)){
+                return headB;
+              }
+            }
+            
+            headB = headB.next;
+        }
+        
+        return null;
+    }
+    
+    //Method 2:
+    //Using HashSet- create an empty hash set, traverse the 1st list and insert all nodes address in hashset. Traverse 2nd list, for every node check if it is present in hashset.
+    //if we find a node in hashset, return the node.
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        HashSet<ListNode> hs = new HashSet<ListNode>();
+        while(headA!=null){
+            hs.add(headA);
+            headA = headA.next;
+        }
+        
+        while(headB!=null){
+            if(hs.contains(headB)){
+                return headB;
+            }
+            headB = headB.next;
+        }
+        
+        return null;
+    }
+}
+
+/* this method takes O(n) space.*/
