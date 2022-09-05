@@ -1,0 +1,36 @@
+class Solution {
+    public int findDuplicate(int[] nums) {
+        HashSet<Integer> set = new HashSet<Integer>();
+        for(int n : nums){
+            if(set.contains(n)){
+                return n;
+            }
+            else{
+                set.add(n);
+            }
+        }
+        
+        return -1;
+    }
+}
+
+/*
+class Solution {
+    public int findDuplicate(LinkedList nums) {
+        HashSet<Integer> set = new HashSet<Integer>();
+        LinkedList previous = null;
+        while(nums!=null){
+          if(set.contains(nums.data)){
+                return nums.data;
+            }
+            else{
+                set.add(nums.data);
+                previous = nums;
+            }
+            
+            nums = nums.next;
+        }
+        
+        return -1;
+    }
+}
